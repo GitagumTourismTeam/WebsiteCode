@@ -1,5 +1,5 @@
 <?php
-   include('config.php');
+   include('../config.php');
    session_start();
    
    $user_check = $_SESSION['login_user'];
@@ -11,6 +11,6 @@
    $login_session = $row['user_login'];
    
    if(!isset($_SESSION['login_user'])){
-      header("location:admin.php");
+      header("location:index.php");
    }
 ?>
