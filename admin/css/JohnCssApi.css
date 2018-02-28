@@ -1,0 +1,89 @@
+/* Settings Default Colors i want to use*/
+
+.setColorLightBlue {
+    background: lightblue;
+}
+
+.setColorCustomBlue {
+    background: rgb(49, 181, 224);
+}
+
+
+/* Alginment Text */
+
+.setTextCenter {
+    text-align: center;
+}
+
+.setTextLeft {
+    text-align: left;
+}
+
+.johnInput {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+}
+
+
+/* padding */
+
+.setMarginLeft-20 {
+    margin-left: 20px
+}
+
+
+/* Table Center */
+
+table.center {
+    width: 100%;
+}
+
+.JohnColor1 {
+    background-color: rgb(255, 2, 2)
+}
+
+.JohnColor2 {
+    background-color: rgb(255, 230, 2)
+}
+
+.JohnColor3 {
+    background-color: rgb(255, 2, 221)
+}
+
+.JohnColor4 {
+    background-color: rgb(6, 2, 255)
+}
+
+
+/* Speciall Made Tables */
+
+#johnTable1 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#johnTable1 td,
+#johnTable1 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#johnTable1 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#johnTable1 tr:hover {
+    background-color: #ddd;
+}
+
+#johnTable1 th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
