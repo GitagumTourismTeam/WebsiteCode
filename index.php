@@ -65,18 +65,17 @@
 </head>
 
 <body>
-
     <div class="navbar" id="navibar">
         <div class="navbarlogo">
             <img src="img/LOGO.png">
             <h1>Gitagum</h1>
         </div>
         <a href="#dummy" class="dummy"></a>
-        <a href="index.html" class="active">Home</a>
-        <a href="#news">Tourism</a>
+        <a href="index.php" class="active">Home</a>
+        <a href="tourism.html">Tourism</a>
         <a href="announcements.php">Announcement</a>
-        <a href="about.html">About</a>
-        <a href="#about">Downloadables</a>
+        <a href="About.html">About</a>
+        <a href="downloadables.php">Downloadables</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
         <div class="containernav"> </div>
     </div>

@@ -44,6 +44,7 @@
             <th>Place Name</th>
             <th>Place Information</th>
             <th>Place Location</th>
+            <th>Place Photo</th>
             <th>Option</th>
             <th><a href="place_add.php">Add Places</a></th>
         </tr>
@@ -55,6 +56,7 @@
                     echo "<td>". $row["place_name"]. "</td>";
                     echo "<td>". $row["place_information"]. "</td>";
                     echo "<td>". $row["place_location"]. "</td>";
+                    echo "<td>". $row["photo_file"]. "</td>";
                     echo "<td>". '<a href="place_edit.php?id='.$row["id"].'">Edit</a>'. "<br>" .'<a href="place_delete.php?id='.$row["id"].'">Delete</a>'. "</td>";
                     echo "</tr>";
                 }

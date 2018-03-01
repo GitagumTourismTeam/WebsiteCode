@@ -12,13 +12,14 @@
     </head>
 
     <body>
-        <form action="place_addlogic.php" method="post"> 
+        <form action="place_addlogic.php" method="post" enctype="multipart/form-data"> 
             Place Name: <input type="text" name="place_name">
             <br>
             Place Information: <input type="text" name="place_information">
             <br>
             Place Location: <input type="text" name="place_location">
             <br>
+            <input type="file" name="file" />
             <input type="submit" value="Submit"> 
         </form>
     </body>

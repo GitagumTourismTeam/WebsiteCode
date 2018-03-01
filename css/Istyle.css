@@ -220,9 +220,9 @@
         float: right;
         position: relative;
         background: rgb(97, 25, 25);
-        width: 45%;
-        /* height: 500px; */
-        margin: 5% 10px 0 200px;
+        width: 40%;
+        height: 500px;
+        margin: 5% 10px 0 55%;
         word-wrap: break-word;
         display: block;
         -webkit-transform: translate3d(0, 0, 0);

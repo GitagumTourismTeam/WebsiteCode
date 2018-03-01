@@ -16,6 +16,13 @@
     </div>
     <div id="body">
         <form action="downloadables_addlogic.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="file_name" required> 
+            <select name="department">
+                <option value="1">Department 1</option>
+                <option value="2">Department 2</option>
+                <option value="3">Department 3</option>
+                <option value="4">Department 4</option>
+            </select>
             <input type="file" name="file" />
             <button type="submit" name="btn-upload">upload</button>
         </form>

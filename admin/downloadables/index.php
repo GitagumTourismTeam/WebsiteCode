@@ -29,7 +29,7 @@
         <a href="#dummy" class="dummy"></a>
         <a href="../adminpage.php">Home Page</a>
         <a href="../places/">Places</a>
-        <a href="../posts/" class="active">Posts</a>
+        <a href="../posts/">Posts</a>
         <a href="../events/">Events</a>
         <a href="../downloadables/" class="active">Downloadables</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
@@ -41,9 +41,12 @@
     </br>
     <table id="johnTable1">
         <tr>
+            <th>File Nickname</th>
             <th>File Name</th>
             <th>File Type</th>
             <th>File Size</th>
+            <th>Department</th>
+            <th>Date Time</th>
             <th>Option</th>
             <th><a href="downloadables_add.php">Add Downloadables</a></th>
         </tr>
@@ -68,9 +71,12 @@
                     if($row['file_type'] == 'image/jpeg'){
                         echo '<img src="../icon/jpg.png">';
                     }
-                    echo '<a href="../../uploads/'.$row['file_name'].'" target="_blank" download>'.$row["file_name"]. "</a>" . "</td>";
-                    echo "<td>" . $row["file_type"]. "</td>";
+                    echo '<a href="../../uploads/'.$row['file_location'].'" target="_blank" download>'.$row["file_name"]. "</a>" . "</td>";
+                    echo "<td>" .$row["file_location"]. "</td>";
+                    echo "<td>" .$row["file_type"]. "</td>";
                     echo "<td>". $row["file_size"]. "</td>";
+                    echo "<td>". $row["department"]. "</td>";
+                    echo "<td>". $row["file_date"]. "</td>";
                     echo "<td>".'<a href="downloadables_delete.php?id='.$row["id"].'">Delete</a>'. "</td>";
                     echo "</tr>";
                 }

@@ -21,48 +21,53 @@
          }
     }
 ?>
-<html>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
     <head>
-        <title>Login Page</title>
-        <style type="text/css">
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 14px;
-            }
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="css/adminlogin.css">
+        <link rel="shortcut icon" href="img/lege.ico" />
+        <title>Admin</title>
+        <script>
+            $('.error-page').hide(0);
 
-            label {
-                font-weight: bold;
-                width: 100px;
-                font-size: 14px;
-            }
+            $('.login-button , .no-access').click(function() {
+                $('.login').slideUp(500);
+                $('.error-page').slideDown(1000);
+            });
 
-            .box {
-                border: #666666 solid 1px;
-            }
-        </style>
+            $('.try-again').click(function() {
+                $('.error-page').hide(0);
+                $('.login').slideDown(1000);
+            });
+        </script>
     </head>
-    <body bgcolor="#FFFFFF">
-        <div align="center">
-            <div style="width:300px; border: solid 1px #333333; " align="left">
-                <div style="background-color:#333333; color:#FFFFFF; padding:3px;">
-                    <b>Login</b>
-                </div>
-                <div style="margin:30px">
-                    <form action="" method="post">
-                        <label>UserName :</label>
-                        <input type="text" name="username" class="box" />
-                        <br />
-                        <br />
-                        <label>Password :</label>
-                        <input type="password" name="password" class="box" />
-                        <br/>
-                        <br />
-                        <input type="submit" value=" Submit " />
-                        <br /> </form>
-                    <div style="font-size:11px; color:#cc0000; margin-top:10px">
-                        <?php echo $error; ?> </div>
-                </div>
+
+    <body>
+        <div class="login">
+            <div class="login-header">
+                <h1>Gitagum</h1>
             </div>
+            <form action="" method="post">
+                <div class="login-form">
+                    <h3>Username:</h3>
+                    <input type="text" name="username" placeholder="Username" /><br>
+                    <h3>Password:</h3>
+                    <input type="password" name="password" placeholder="Password" />
+                    <br>
+                    <input type="submit" value="Submit" class="login-button" />
+                    <br>
+                </div>
+            </form>
         </div>
+        <div class="error-page">
+            <div class="try-again">Error: Try again?</div>
+        </div>
+
     </body>
-</html>
+
+    </html>

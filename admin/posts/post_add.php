@@ -19,6 +19,8 @@
             <br>
             Post Date: <input type="text" name="post_date">
             <br>
+            Pinned: <input type="radio" name=pinned value='1'> Yes <input type="radio" name=pinned value='0'> No </br>
+            <input type="file" name="file" />
             <input type="submit" value="Submit"> 
         </form>
     </body>

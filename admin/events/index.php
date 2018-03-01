@@ -45,8 +45,9 @@
             <th>Event Name</th>
             <th>Event Content</th>
             <th>Event Date</th>
+            <th>Photo File</th>
             <th>Option</th>
-            <th><a href="event_add.php">Add Places</a></th>
+            <th><a href="event_add.php">Add Event</a></th>
         </tr>
         <?php
             if ($result->num_rows > 0) {
@@ -56,6 +57,7 @@
                     echo "<td>". $row["event_name"]. "</td>";
                     echo "<td>". $row["event_content"]. "</td>";
                     echo "<td>". $row["event_date"]. "</td>";
+                    echo "<td>". $row["photo_file"]. "</td>";
                     echo "<td>". '<a href="event_edit.php?id='.$row["id"].'">Edit</a>'. "<br>" .'<a href="event_delete.php?id='.$row["id"].'">Delete</a>'. "</td>";
                     echo "</tr>";
                 }

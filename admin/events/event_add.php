@@ -19,6 +19,7 @@
             <br>
             Event Date: <input type="text" name="event_date">
             <br>
+            <input type="file" name="file" />
             <input type="submit" value="Submit"> 
         </form>
     </body>

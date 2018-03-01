@@ -6,7 +6,7 @@
     $sql="SELECT * FROM file_system where id=$id";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $file_name =  $row['file_name'];
+    $file_name =  $row['file_location'];
     unlink('../../uploads/'.$file_name);
 
     // Delete From Database

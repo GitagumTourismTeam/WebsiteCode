@@ -44,6 +44,8 @@
             <th>Post Title</th>
             <th>Post Context</th>
             <th>Post Date</th>
+            <th>Pinned</th>
+            <th>Photo File<th>
             <th>Option</th>
             <th><a href="post_add.php">Add Post</a></th>
         </tr>
@@ -55,6 +57,8 @@
                     echo "<td>". $row["post_title"]. "</td>";
                     echo "<td>". $row["post_context"]. "</td>";
                     echo "<td>". $row["post_date"]. "</td>";
+                    echo "<td>". $row["pinned"]."</td>";
+                    echo "<td>". $row["photo_file"]."</td>";
                     echo "<td>". '<a href="post_edit.php?id='.$row["id"].'">Edit</a>'. "<br>" .'<a href="post_delete.php?id='.$row["id"].'">Delete</a>'. "</td>";
                     echo "</tr>";
                 }
