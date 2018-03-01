@@ -1,3 +1,7 @@
+<?php
+    require_once("config.php");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +17,7 @@
         $(document).ready(function() {
             $(window).scroll(function() {
                 var scroll = $(window).scrollTop();
-                if (scroll > 550) {
+                if (scroll > 100) {
                     $(".navbar").css("background", "black");
                 } else {
                     $(".navbar").css("background", "rgba(0, 0, 0, 0.432)");
@@ -42,10 +46,10 @@
         </div>
         <a href="#dummy" class="dummy"></a>
         <a href="index.php">Home</a>
-        <a href="tourism.html">Tourism</a>
+        <a href="tourism.php">Tourism</a>
         <a href="announcements.php">Announcement</a>
         <a href="About.html" class="active">About</a>
-        <a href="downloadables.php">Downloadables</a>
+        <a href="downloadables.php?id=1">Downloadables</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
         <div class="containernav"> </div>
     </div>
@@ -60,68 +64,22 @@
     </div>
 
     <div class="message">
-        Man, I hate Nickle Back
+        MAN I HATE NICKELBACK
     </div>
     <div class="photos">
-        <div><img src="img/1.jpg">
-            <p>Alejandro Manning</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/2.jpg">
-            <p>Hayley Welch</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/17.jpg">
-            <p>Samuel Weber</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/21.jpg">
-            <p>Raul Fitzgerald</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-        </div>
-        <div><img src="img/25.jpg">
-            <p>Morgan Oliver</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/41.jpg">
-            <p>Abby Alvarado</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/44.jpg">
-            <p>Carolyn Riley</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/62.jpg">
-            <p>Evelyn Ortega</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/65.jpg">
-            <p>Alvin Torres</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/67.jpg">
-            <p>Jenny Luna</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div><img src="img/80.jpg">
-            <p>Emilio Beck</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
-        <div> <img src="img/81.jpg">
-            <p>Bryanna Neal</p>
-            <a href="#pop"><img src="img/down.png" style="width:10%;"></a>
-
-        </div>
+    <?php
+        $sql = "SELECT * from persons order by id ASC";
+        $result = mysqli_query($db, $sql);
+        while($row=mysqli_fetch_array($result))
+        {
+    ?>
+        <div><img src="img/uploaded/<?php echo $row['photo_file']?>">
+            <p><?php echo $row['person_name']?></p>
+            <a href="#pop?id=<?php echo $row['id']?>"><img src="img/down.png" style="width:10%;"></a>
+        </div> 
+    <?php
+        }
+    ?>
     </div>
     <div class="sometext">
         <h1>"Improving lives around the community"</h1>
@@ -146,7 +104,7 @@
             <h4>Learn More ></h4>
         </div>
     </div>
-    <div id="pop" class="poppy">
+    <div id="pop?id=1" class="poppy">
         <div class="pops">
             <h2>Mayor</h2>
             <a class="close" href="#">&times;</a>
@@ -155,11 +113,17 @@
             </div>
         </div>
     </div>
+    <div id="pop?id=2" class="poppy">
+        <div class="pops">
+            <h2>vice mayor</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                Test
+            </div>
+        </div>
+    </div>
     <div class="footer">
-        <h1>Man I hate Nickleback</h1>
-        <h1>Man I hate Nickleback</h1>
-        <h1>Man I hate Nickleback</h1>
-        <h1>Man I hate Nickleback</h1>
+        <p>INSERT FOOTER STUFF HERE</p>
     </div>
 </body>
 

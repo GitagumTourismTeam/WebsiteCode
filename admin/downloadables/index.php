@@ -1,87 +1,106 @@
 <?php
     require('../session.php');
 
-    $sql="SELECT * FROM file_system";
+    $sql = "SELECT * FROM file_system";
     $result = mysqli_query($db, $sql);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        Posts Table
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- John CSS -->
-    <link rel="stylesheet" href="../css/JohnCssApi.css">
-    <link rel="stylesheet" type="text/css" href="../css/Istyle.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/down.css">
+    <link rel="shortcut icon" href="../img/lege.ico" />
+    <title>Admin-Downloadables</title>
+    <script>
+        function callOut() {
+            var x = document.getElementById("navibar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+    </script>
 </head>
-<body>
 
+<body>
     <div class="navbar" id="navibar">
         <div class="navbarlogo">
             <img src="../img/LOGO.png">
-            <h1>Gitagum Admin Page</h1>
+            <h1>Admin</h1>
         </div>
         <a href="#dummy" class="dummy"></a>
-        <a href="../adminpage.php">Home Page</a>
-        <a href="../places/">Places</a>
-        <a href="../posts/">Posts</a>
+        <a href="../places/">Place</a>
+        <a href="../posts/">Announcements</a>
         <a href="../events/">Events</a>
+        <a href="../persons/">Persons</a>
         <a href="../downloadables/" class="active">Downloadables</a>
+        <a href="../logout.php"> Logout </a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
         <div class="containernav"> </div>
     </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    <table id="johnTable1">
-        <tr>
-            <th>File Nickname</th>
-            <th>File Name</th>
-            <th>File Type</th>
-            <th>File Size</th>
-            <th>Department</th>
-            <th>Date Time</th>
-            <th>Option</th>
-            <th><a href="downloadables_add.php">Add Downloadables</a></th>
-        </tr>
+    <table>
+        <caption>Downloadables</caption>
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Type</th>
+                <th scope="col">Size</th>
+                <th scope="col">Department</th>
+                <th scope="col">Date</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
         <?php
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>";
-                    if($row['file_type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'){
-                        echo '<img src="../icon/xlsx.png">';
-                    }
-                    if($row['file_type'] == 'application/pdf'){
-                        echo '<img src="../icon/pdf.png">';
-                    }
-                    if($row['file_type'] == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'){
-                        echo '<img src="../icon/doc.png">';
-                    }
-                    if($row['file_type'] == 'image/png'){
-                        echo '<img src="../icon/png.png">';
-                    }
-                    if($row['file_type'] == 'image/jpeg'){
-                        echo '<img src="../icon/jpg.png">';
-                    }
-                    echo '<a href="../../uploads/'.$row['file_location'].'" target="_blank" download>'.$row["file_name"]. "</a>" . "</td>";
-                    echo "<td>" .$row["file_location"]. "</td>";
-                    echo "<td>" .$row["file_type"]. "</td>";
-                    echo "<td>". $row["file_size"]. "</td>";
-                    echo "<td>". $row["department"]. "</td>";
-                    echo "<td>". $row["file_date"]. "</td>";
-                    echo "<td>".'<a href="downloadables_delete.php?id='.$row["id"].'">Delete</a>'. "</td>";
-                    echo "</tr>";
-                }
+            while($row=mysqli_fetch_array($result))
+            {
+        ?>
+        <tbody>
+            <tr>
+                <td data-label="Name"><?php echo $row['file_name'] ?></td>
+                <td data-label="Location"><?php echo $row['file_location'] ?></td>
+                <td data-label="Type"><?php echo $row['file_type'] ?></td>
+                <td data-label="Size"><?php echo $row['file_size'] ?></td>
+                <td data-label="Department"><?php echo $row['department'] ?></td>
+                <td data-label="Date"><?php echo $row['file_date'] ?></td>
+                <td data-label="Option"><button class="delete-button" onclick="location.href='downloadables_delete.php?id=<?php echo $row['id']?>'">Delete</button></td>
+            </tr>
+        </tbody>
+        <?php
             }
         ?>
     </table>
+    <div class="ass">
+        <button onclick="document.getElementById('id01').style.display='block'" class="add-button">New Upload</button>
+    </div>
 </body>
+
+<div id="id01" class="modal">
+
+    <form class="modal-content animate" action="downloadables_addlogic.php" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <label for="nickname"><b>Filename:</b></label>
+            <input type="text" placeholder="File Name" name="file_name" required>
+            <select name="department">
+                    <option value="" selected disabled>Choose...</option>
+                    <option value="1">Department 1</option>
+                    <option value="2">Department 2</option>
+                    <option value="3">Department 3</option>
+                    <option value="4">Department 4</option>
+                    <option value="5">Department 5</option>
+            </select>
+            <input type="file" value="Browse" name="file" required>
+        </div>
+        <div class=" container ">
+            <button type="button" onclick="document.getElementById( 'id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <button type="submit" class="upload" name="btn-upload">Upload</button>
+        </div>
+    </form>
+</div>
+
 </html>

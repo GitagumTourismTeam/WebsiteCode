@@ -20,12 +20,14 @@
 <body>
     <form action="post_editlogic.php" method="post"> 
         <input type="hidden" name="id" value="<?php print $id; ?>" />
+        <input type="hidden" name="old_file" value="<?php print $row['photo_file']; ?>" />
         Post Title: <input type="text" name="post_title" value="<?php print $row['post_title']; ?>">
         <br>
         Post Context: <input type="text" name="post_context" value="<?php print $row['post_context']; ?>">
         <br>
         Post Date: <input type="text" name="post_date" value="<?php print $row['post_date']; ?>">
         <br>
+        <input type="file" name="file"><span><?php echo $row['photo_file']?></span>
         <input type="submit" value="Submit"> 
     </form>
 </body>

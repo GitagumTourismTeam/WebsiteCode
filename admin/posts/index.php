@@ -6,64 +6,100 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-        Posts Table
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- John CSS -->
-    <link rel="stylesheet" href="../css/JohnCssApi.css">
-    <link rel="stylesheet" type="text/css" href="../css/Istyle.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/Announcements.css">
+    <link rel="shortcut icon" href="lege.ico" />
+    <title>Admin-Announcements</title>
+    <script>
+        function callOut() {
+            var x = document.getElementById("navibar");
+            if (x.className === "navbar") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar";
+            }
+        }
+    </script>
 </head>
-<body>
 
+<body>
     <div class="navbar" id="navibar">
         <div class="navbarlogo">
             <img src="../img/LOGO.png">
-            <h1>Gitagum Admin Page</h1>
+            <h1>Admin</h1>
         </div>
         <a href="#dummy" class="dummy"></a>
-        <a href="../adminpage.php">Home Page</a>
-        <a href="../places/">Places</a>
-        <a href="../posts/" class="active">Posts</a>
+        <a href="../places/">Place</a>
+        <a href="../annoucements/" class="active">Announcements</a>
         <a href="../events/">Events</a>
+        <a href="../persons/">Persons</a>
         <a href="../downloadables/">Downloadables</a>
+        <a href="../logout.php"> Logout </a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
         <div class="containernav"> </div>
     </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    <table id="johnTable1">
-        <tr>
-            <th>Post Title</th>
-            <th>Post Context</th>
-            <th>Post Date</th>
-            <th>Pinned</th>
-            <th>Photo File<th>
-            <th>Option</th>
-            <th><a href="post_add.php">Add Post</a></th>
-        </tr>
+    <table>
+        <caption>Announcements</caption>
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Context</th>
+                <th scope="col">Date</th>
+                <th scope="col">Pinned</th>
+                <th scope="col">Photo File</th>
+                <th scope="col">Option</th>
+            </tr>
+        </thead>
         <?php
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>". $row["post_title"]. "</td>";
-                    echo "<td>". $row["post_context"]. "</td>";
-                    echo "<td>". $row["post_date"]. "</td>";
-                    echo "<td>". $row["pinned"]."</td>";
-                    echo "<td>". $row["photo_file"]."</td>";
-                    echo "<td>". '<a href="post_edit.php?id='.$row["id"].'">Edit</a>'. "<br>" .'<a href="post_delete.php?id='.$row["id"].'">Delete</a>'. "</td>";
-                    echo "</tr>";
-                }
+            while($row=mysqli_fetch_array($result))
+            {
+        ?>
+        <tbody>
+            <tr>
+                <td data-label="Title"><?php echo $row["post_title"] ?></td>
+                <td data-label="Context"><?php echo $row["post_context"] ?></td>
+                <td data-label="Date"><?php echo $row["post_date"] ?></td>
+                <td data-label="Date"><?php echo $row["pinned"] ?></td>
+                <td data-label="Photo File"><?php echo $row["photo_file"] ?></td>
+                <td data-label="Option"><button class="edit-button" onclick="location.href='posts_edit.php?id=<?php echo $row['id']?>'">Edit</button><button class="delete-button" onclick="location.href='posts_delete.php?id=<?php echo $row['id']?>'">Delete</button></td>
+            </tr>
+        </tbody>
+        <?php
             }
         ?>
     </table>
+    <div class="ass">
+        <button onclick="document.getElementById('id01').style.display='block'" class="add-button">New Announcement</button>
+    </div>
 </body>
+
+<div id="id01" class="modal">
+
+    <form class="modal-content animate" action="posts_addlogic.php" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <label for="uname"><b>Title</b></label>
+            <input type="text" placeholder="Enter Title" name="uname" required>
+
+            <label for="psw"><b>Context</b></label>
+            <input type="text" placeholder="Enter Context" name="con" required>
+
+            <label for="psw"><b>Date</b></label>
+            <input type="text" placeholder="Enter Date" name="date" required>
+            
+            <input type="file" value="Browse" name="file">
+            
+        </div>
+
+        <div class="container">
+            <button type="submit" class="submit-but">Submit</button>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+    </form>
+</div>
+
 </html>

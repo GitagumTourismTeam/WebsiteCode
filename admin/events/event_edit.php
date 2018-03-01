@@ -18,14 +18,16 @@
 </head>
 
 <body>
-    <form action="event_editlogic.php" method="post"> 
+    <form action="event_editlogic.php" method="post" enctype="multipart/form-data"> 
         <input type="hidden" name="id" value="<?php print $id; ?>" />
+        <input type="hidden" name="old_file" value="<?php print $row['photo_file']; ?>" />
         Event Name: <input type="text" name="event_name" value="<?php print $row['event_name']; ?>">
         <br>
         Event Content: <input type="text" name="event_content" value="<?php print $row['event_content']; ?>">
         <br>
         Event Date: <input type="text" name="event_date" value="<?php print $row['event_date']; ?>">
         <br>
+        <input type="file" name="file"><span><?php echo $row['photo_file']?></span>
         <input type="submit" value="Submit"> 
     </form>
 </body>

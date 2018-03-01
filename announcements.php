@@ -2,9 +2,21 @@
   include("config.php");
   // send query
 
-  $query = "SELECT * from events";
+  $events = "SELECT * from events";
 
-  $result = mysqli_query($db, $query);
+  $events2 = "SELECT * from events ORDER BY id DESC";
+
+  $announce = "SELECT * from posts where pinned = '1'";
+
+  $announce2 = "SELECT * from posts ORDER BY id DESC";
+
+  $result = mysqli_query($db, $events);
+
+  $result2 = mysqli_query($db, $announce);
+
+  $result3 = mysqli_query($db, $announce2);
+
+  $result4 = mysqli_query($db, $events2);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +34,7 @@
         $(document).ready(function() {
             $(window).scroll(function() {
                 var scroll = $(window).scrollTop();
-                if (scroll > 550) {
+                if (scroll > 100) {
                     $(".navbar").css("background", "black");
                 } else {
                     $(".navbar").css("background", "rgba(0, 0, 0, 0.432)");
@@ -52,10 +64,10 @@
           </div>
           <a href="#dummy" class="dummy"></a>
           <a href="index.php">Home</a>
-          <a href="tourism.html">Tourism</a>
+          <a href="tourism.php">Tourism</a>
           <a href="announcements.php" class="active">Announcement</a>
           <a href="About.html">About</a>
-          <a href="downloadables.php">Downloadables</a>
+          <a href="downloadables.php?id=1">Downloadables</a>
           <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
           <div class="containernav"> </div>
         </div>
@@ -69,35 +81,73 @@
               
                 <div class="slider-wrapper">
                   <div class=inner>
-                    <article>
-                      <div class="info bottom-left">
-                        <h3>This will be a pinned post with all those cool text and stuff</h3></div>
-                      <img src="img/a.jpg" />
-                    </article>
+                    <?php
+                    $row = $result2->fetch_assoc();
+                    echo '<article>';
+                      echo '<div class="info bottom-left">';
+                        echo '<h2>'. $row["post_title"] .'</h2>';
+                        echo '<h3>'. $row["post_context"] .'</h3>';
+                        echo '<h4>'. $row["post_date"] .'</h4>';
+                        echo '</div>';
+                        echo '<img src="img/Overlay.png" class="overlay"/>';
+                        echo '<img src="img/uploaded/'.$row["photo_file"].'" class="img"/>';
+                    echo '</article>';
               
-                    <article>
-                      <div class="info bottom-left">
-                        <h3>This will also be a pinned announcement</h3></div>
-                      <img src="img/c.jpg" />
-                    </article>
-              
-                    <article>
-                      <div class="info bottom-left">
-                        <h3>A Lake or something I Dunno</h3></div>
-                      <img src="img/f.jpg" />
-                    </article>
-              
-                    <article>
-                      <div class="info bottom-left">
-                        <h3>Where am I going with this</h3></div>
-                      <img src="img/a.jpg" />
-                    </article>
-              
-                    <article>
-                      <div class="info bottom-left">
-                        <h3>Stock images for now and cooler custom images later</h3></div>
-                      <img src="img/c.jpg" />
-                    </article>
+                    $row = $result2->fetch_assoc();
+                    echo '<article>';
+                      echo '<div class="info bottom-left">';
+                        echo '<h2>'. $row["post_title"] .'</h2>';
+                        echo '<h3>'. $row["post_context"] .'</h3>';
+                        echo '<h4>'. $row["post_date"] .'</h4>';
+                        echo '</div>';
+                        echo '<img src="img/Overlay.png" class="overlay"/>';
+                        echo '<img src="img/uploaded/'.$row["photo_file"].'" class="img"/>';
+                    echo '</article>';
+
+                    $row = $result2->fetch_assoc();
+                    echo '<article>';
+                      echo '<div class="info bottom-left">';
+                        echo '<h2>'. $row["post_title"] .'</h2>';
+                        echo '<h3>'. $row["post_context"] .'</h3>';
+                        echo '<h4>'. $row["post_date"] .'</h4>';
+                        echo '</div>';
+                        echo '<img src="img/Overlay.png" class="overlay"/>';
+                        echo '<img src="img/uploaded/'.$row["photo_file"].'" class="img"/>';
+                    echo '</article>';
+
+                    $row = $result2->fetch_assoc();
+                    echo '<article>';
+                      echo '<div class="info bottom-left">';
+                        echo '<h2>'. $row["post_title"] .'</h2>';
+                        echo '<h3>'. $row["post_context"] .'</h3>';
+                        echo '<h4>'. $row["post_date"] .'</h4>';
+                        echo '</div>';
+                        echo '<img src="img/Overlay.png" class="overlay"/>';
+                        echo '<img src="img/uploaded/'.$row["photo_file"].'" class="img"/>';
+                    echo '</article>';
+
+                    $row = $result2->fetch_assoc();
+                    echo '<article>';
+                      echo '<div class="info bottom-left">';
+                        echo '<h2>'. $row["post_title"] .'</h2>';
+                        echo '<h3>'. $row["post_context"] .'</h3>';
+                        echo '<h4>'. $row["post_date"] .'</h4>';
+                        echo '</div>';
+                        echo '<img src="img/Overlay.png" class="overlay"/>';
+                        echo '<img src="img/uploaded/'.$row["photo_file"].'" class="img"/>';
+                    echo '</article>';
+
+                    $row = $result2->fetch_assoc();
+                    echo '<article>';
+                      echo '<div class="info bottom-left">';
+                        echo '<h2>'. $row["post_title"] .'</h2>';
+                        echo '<h3>'. $row["post_context"] .'</h3>';
+                        echo '<h4>'. $row["post_date"] .'</h4>';
+                        echo '</div>';
+                        echo '<img src="img/Overlay.png" class="overlay"/>';
+                        echo '<img src="img/uploaded/'.$row["photo_file"].'" class="img"/>';
+                    echo '</article>';
+                    ?>
                   </div>
                   <!-- .inner -->
                 </div>
@@ -134,35 +184,39 @@
                 <?php 
                 
                 echo '<ul>';
-                  $row = $result->fetch_assoc();
+                  $row = $result3->fetch_assoc();
                   echo '<li class="anim1">';
-                    echo '<div class="name">'. $row["event_name"] .'</div>';
-                    echo '<div class="content">'. $row["event_content"] .'</div>';
-                    echo '<div class="date">'. $row["event_date"] .'</div>';
+                    echo '<div class="name">'. $row["post_title"] .'</div>';
+                    echo '<div class="content">'. $row["post_context"] .'</div>';
+                    echo '<div class="date">'. $row["post_date"] .'</div>';
                   echo '</li>';
-                  $row = $result->fetch_assoc();
+
+                  $row = $result3->fetch_assoc();
                   echo '<li class="anim2">';
-                    echo '<div class="name">'. $row["event_name"] .'</div>';
-                    echo '<div class="content">'. $row["event_content"] .'</div>';
-                    echo '<div class="date">'. $row["event_date"] .'</div>';
+                    echo '<div class="name">'. $row["post_title"] .'</div>';
+                    echo '<div class="content">'. $row["post_context"] .'</div>';
+                    echo '<div class="date">'. $row["post_date"] .'</div>';
                   echo '</li>';
-                  $row = $result->fetch_assoc();
+
+                  $row = $result3->fetch_assoc();
                   echo '<li class="anim3">';
-                    echo '<div class="name">'. $row["event_name"] .'</div>';
-                    echo '<div class="content">'. $row["event_content"] .'</div>';
-                    echo '<div class="date">'. $row["event_date"] .'</div>';
+                    echo '<div class="name">'. $row["post_title"] .'</div>';
+                    echo '<div class="content">'. $row["post_context"] .'</div>';
+                    echo '<div class="date">'. $row["post_date"] .'</div>';
                   echo '</li>';
-                  $row = $result->fetch_assoc();
+
+                  $row = $result3->fetch_assoc();
                   echo '<li class="anim4">';
-                    echo '<div class="name">'. $row["event_name"] .'</div>';
-                    echo '<div class="content">'. $row["event_content"] .'</div>';
-                    echo '<div class="date">'. $row["event_date"] .'</div>';
+                    echo '<div class="name">'. $row["post_title"] .'</div>';
+                    echo '<div class="content">'. $row["post_context"] .'</div>';
+                    echo '<div class="date">'. $row["post_date"] .'</div>';
                   echo '</li>';
-                  $row = $result->fetch_assoc();
+
+                  $row = $result3->fetch_assoc();
                   echo '<li class="anim5">';
-                    echo '<div class="name">'. $row["event_name"] .'</div>';
-                    echo '<div class="content">'. $row["event_content"] .'</div>';
-                    echo '<div class="date">'. $row["event_date"] .'</div>';
+                    echo '<div class="name">'. $row["post_title"] .'</div>';
+                    echo '<div class="content">'. $row["post_context"] .'</div>';
+                    echo '<div class="date">'. $row["post_date"] .'</div>';
                   echo '</li>';
                 echo '</ul>';
                 
@@ -178,50 +232,54 @@
           <div id="head">
            <h1>See what's happening</h1>
           </div>
-          <div class="box-1 card">
-            <div class="wrapper">
-              <div class="data">
-                <div class="content">
-                  <h1 class="title">Reminder that event names should be kept short or things could get weird.</h1>
-                  <!--========================================================================================================================================character limit=======-->
-                  <p class="text">Ethical yuccie raw denim sriracha helvetica portland stumptown shoreditch jianbing banjo cray. Drinking vinegar PBR&B franzen pug, hexagon microdosing air plant ennui gentrify. Green juice viral wolf, microdosing brooklyn gluten-free hella selfies distillery
-                                  cliche lumbersexual pop-up. Artisan lo-fi synth fanny pack swag. Art party scenester semiotics, whatever hot chicken jean shorts artisan YOLO. YOLO woke hexagon, farm-to-table cornhole godard bicycle rights VHS. Pour-over narwhal craft beer
-                                  shoreditch keytar PBR&B microdosing pop-up authentic edison bulb poutine neutra VHS.</p>
-          
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php
 
-          <div class="box-2 card">
-            <div class="wrapper">
-              <div class="data">
-                <div class="content">
-                  <h1 class="title">New donut shop opening downtown. People are going crazy.</h1>
-                  <!--========================================================================================================================================character limit=======-->
-                  <p class="text">Ethical yuccie raw denim sriracha helvetica portland stumptown shoreditch jianbing banjo cray. Drinking vinegar PBR&B franzen pug, hexagon microdosing air plant ennui gentrify. Green juice viral wolf, microdosing brooklyn gluten-free hella selfies distillery
-                                  cliche lumbersexual pop-up. Artisan lo-fi synth fanny pack swag. Art party scenester semiotics, whatever hot chicken jean shorts artisan YOLO. YOLO woke hexagon, farm-to-table cornhole godard bicycle rights VHS. Pour-over narwhal craft beer
-                                  shoreditch keytar PBR&B microdosing pop-up authentic edison bulb poutine neutra VHS.</p>
+          $row = $result4->fetch_assoc();
           
-                </div>
-              </div>
-            </div>
-          </div>
+          echo '<div class="box-1 card">';
+            echo '<div class="wrapper" style="background: url(img/uploaded/'.$row["photo_file"].') center/cover no-repeat;">';
+              echo '<div class="data">';
+                echo '<div class="content">';
+                  echo '<h1 class="title">'. $row["event_name"] .'</h1>';
+                  
+                  echo '<p class="text">'. $row["event_content"] .'</p>';
+          
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
 
-          <div class="box-3 card">
-            <div class="wrapper">
-              <div class="data">
-                <div class="content">
-                  <h1 class="title">Some sports team wins. It's a big deal.</h1>
-                  <!--========================================================================================================================================character limit=======-->
-                  <p class="text">Ethical yuccie raw denim sriracha helvetica portland stumptown shoreditch jianbing banjo cray. Drinking vinegar PBR&B franzen pug, hexagon microdosing air plant ennui gentrify. Green juice viral wolf, microdosing brooklyn gluten-free hella selfies distillery
-                                  cliche lumbersexual pop-up. Artisan lo-fi synth fanny pack swag. Art party scenester semiotics, whatever hot chicken jean shorts artisan YOLO. YOLO woke hexagon, farm-to-table cornhole godard bicycle rights VHS. Pour-over narwhal craft beer
-                                  shoreditch keytar PBR&B microdosing pop-up authentic edison bulb poutine neutra VHS.</p>
-          
-                </div>
-              </div>
-            </div>
-          </div>
+          $row = $result4->fetch_assoc();
+
+          echo '<div class="box-2 card">';
+          echo '<div class="wrapper" style="background: url(img/uploaded/'.$row["photo_file"].') center/cover no-repeat;">';
+            echo '<div class="data">';
+              echo '<div class="content">';
+                echo '<h1 class="title">'. $row["event_name"] .'</h1>';
+                
+                echo '<p class="text">'. $row["event_content"] .'</p>';
+        
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+
+        $row = $result4->fetch_assoc();
+
+        echo '<div class="box-3 card">';
+          echo '<div class="wrapper" style="background: url(img/uploaded/'.$row["photo_file"].') center/cover no-repeat;">';
+            echo '<div class="data">';
+              echo '<div class="content">';
+                echo '<h1 class="title">'. $row["event_name"] .'</h1>';
+              
+                echo '<p class="text">'. $row["event_content"] .'</p>';
+      
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+
+        ?>
 
         </div>
 

@@ -116,13 +116,14 @@
     #backimage {
         width: 100%;
         height: auto;
+        max-height: 700px;
         left: 0px;
         right: 0px;
     }
     
     .histcon {
-        margin: 50% 750px 0 30px;
-        width: 50%;
+        margin: 40% 750px 0 30px;
+        width: 55%;
         height: 1640px;
         background: rgb(255, 255, 255);
         position: absolute;
@@ -149,7 +150,7 @@
         background: rgb(255, 255, 255);
         width: 40%;
         height: 700px;
-        margin: 65% 10px 0 auto;
+        margin: 45% 10px 0 auto;
         word-wrap: break-word;
         display: block;
     }
@@ -192,6 +193,28 @@
         color: #00000059;
         display: block;
     }
+
+    
+.item {
+    width: 100%;
+}
+
+.contain {
+    float: left;
+    width: 85%;
+}
+
+#scrolloverflow {
+    min-height: 350px;
+}
+
+#scrolloverflow img {
+    float: left;
+    height: 75px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 55px;
+}
     
     #nicestyle::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -329,13 +352,13 @@
         margin-top: 3000px;
         height: 30%;
         width: 100%;
-        background-color: #4E5262;
-        color: white;
-        text-align: center;
+        background-color: #272727;
     }
     
     .footer p {
-        font-size: 2vw;
+        margin-top: 50px;
+        color: white;
+        text-align: center;
     }
     
     @media (max-width:1050px) {

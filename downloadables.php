@@ -36,10 +36,10 @@
         </div>
         <a href="#dummy" class="dummy"></a>
         <a href="index.php">Home</a>
-        <a href="tourism.html">Tourism</a>
-        <a href="annoucements">Announcement</a>
+        <a href="tourism.php">Tourism</a>
+        <a href="annoucements.php">Announcement</a>
         <a href="about.html">About</a>
-        <a href="downloadables.php" class="active">Downloadables</a>
+        <a href="downloadables.php?id=1" class="active">Downloadables</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="callOut()">&#9776;</a>
         <div class="containernav"> </div>
     </div>

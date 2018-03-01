@@ -132,7 +132,7 @@ h1 {
     overflow: visible;
     position: absolute;
     z-index: 1;
-    background-color: #8bdf46;
+    background-color: #f1ce30;
 }
 
 .mask {
@@ -599,7 +599,7 @@ h1 {
     margin-top: 700px;
     height: 170px;
     z-index: 2;
-    background-color: #8bdf46;
+    background-color: #f1ce30;
 }
 
 #text-sequence-2 h1 {
@@ -673,7 +673,7 @@ h1 {
 
 #awrap {
     height: 400px;
-    width: 500px;
+    width: 100%;
     position: absolute;
     margin: 800px 0 0 810px;
 }
@@ -710,7 +710,7 @@ h1 {
 .scroll-calendar {
     position: absolute;
     height: 400px;
-    width: 500px;
+    width: 100%;
     background: #ffffff;
     overflow-y: scroll;
     margin-bottom: 25px;
@@ -720,7 +720,7 @@ h1 {
 /* scrollbar when hover will show */
 
 
-/* .scroll:hover {
+.scroll:hover {
     float: left;
     height: 400px;
     width: 500px;
@@ -728,17 +728,17 @@ h1 {
     overflow-y: scroll;
     margin-bottom: 25px;
 }
- */
 
 
-/* .scroll-calendar:hover {
+
+.scroll-calendar:hover {
     position: absolute;
     height: 400px;
-    width: 500px;
+    width: 100%;
     background: #ffffff;
     overflow-y: scroll;
     margin-bottom: 25px;
-} */
+}
 
 .item {
     width: 100%;
@@ -835,7 +835,7 @@ input {
 
 .inner {
     width: 500%;
-    line-height: 0;
+    line-height: 10px;
 }
 
 article {
@@ -844,8 +844,24 @@ article {
     position: relative;
 }
 
+.overlay {
+    z-index: 1;
+    opacity: 0;
+    filter: grayscale(100%);
+    filter: brightness(0%);
+    -webkit-transition: all 500ms ease-out 600ms;
+    -moz-transition: all 500ms ease-out 600ms;
+    transition: all 500ms ease-out 600ms;
+}
+
+.img {
+    margin-top: -700px;
+    height: 800px;
+
+}
+
 article img {
-    filter: brightness(70%);
+    filter: brightness(100%);
     height: 700px;
     width: 100%;
 }
@@ -922,23 +938,45 @@ article img {
     opacity: 0;
     color: #000000;
     text-align: left;
-    z-index: 1;
+    z-index: 2;
     -webkit-transition: all 2000ms ease-out 600ms;
     -moz-transition: all 2000ms ease-out 600ms;
     transition: all 2000ms ease-out 600ms;
 }
 
-.info h3 {
-    color: #d1d1d1;
+.info h2 {
+    color: #ffffff;
     margin: 0 0 5px;
     font-family: Helvetica;
     font-weight: normal;
-    font-size: 3em;
+    line-height: 50px;
+    font-size: 42px;
     font-style: normal;
 }
 
+.info h3 {
+    color: #ffffff;
+    margin: 0 0 5px;
+    font-family: Helvetica;
+    font-weight: normal;
+    line-height: 50px;
+    font-size: 36px;
+    font-style: normal;
+}
+
+.info h4 {
+    color: #ffffff;
+    margin: 0 0 5px;
+    font-family: Helvetica;
+    font-weight: normal;
+    line-height: 50px;
+    font-size: 24px;
+    font-style: normal;
+}
+
+
 .info.bottom-left {
-    margin-top: 350px;
+    margin-top: 300px;
     left: 150px;
 }
 
@@ -948,7 +986,6 @@ article img {
 .slider-wrapper {
     width: 100%;
     overflow: hidden;
-    box-shadow: 1px 1px 4px #666;
     background: #fff;
     background: #fcfff4;
     -webkit-transform: translateZ(0);
@@ -1046,8 +1083,16 @@ article img {
 #slide2:checked~.slider-wrapper article:nth-child(2) .info,
 #slide3:checked~.slider-wrapper article:nth-child(3) .info,
 #slide4:checked~.slider-wrapper article:nth-child(4) .info,
-#slide5:checked~.slider-wrapper article:nth-child(5) .info {
+#slide5:checked~.slider-wrapper article:nth-child(5) .info{
     opacity: 1;
+}
+
+#slide1:checked~.slider-wrapper article:nth-child(1) .overlay,
+#slide2:checked~.slider-wrapper article:nth-child(2) .overlay,
+#slide3:checked~.slider-wrapper article:nth-child(3) .overlay,
+#slide4:checked~.slider-wrapper article:nth-child(4) .overlay,
+#slide5:checked~.slider-wrapper article:nth-child(5) .overlay{
+    opacity: 0.5;
 }
 
 #slide1:checked~.slider-wrapper .inner {
@@ -1164,10 +1209,6 @@ article img {
     margin: 0;
 }
 
-.box-1 .wrapper {
-    background: url(../img/52.jpg) center/cover no-repeat;
-}
-
 .box-1 .content {
     background-color: #fff;
     box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
@@ -1177,10 +1218,6 @@ article img {
     color: gray;
 }
 
-.box-2 .wrapper {
-    background: url(../img/51.jpg) center/cover no-repeat;
-}
-
 .box-2 .content {
     background-color: #fff;
     box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
@@ -1188,10 +1225,6 @@ article img {
 
 .box-2 .title h1 {
     color: gray;
-}
-
-.box-3 .wrapper {
-    background: url(../img/50.jpg) center/cover no-repeat;
 }
 
 .box-3 .content {

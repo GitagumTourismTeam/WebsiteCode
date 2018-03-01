@@ -473,8 +473,7 @@ article img {
 
 .card {
     float: left;
-    margin: 1.16%;
-    padding: 1.7rem;
+    margin: 4.16%;
     width: 25%;
 }
 
@@ -547,10 +546,6 @@ article img {
     margin: 0;
 }
 
-.box-1 .wrapper {
-    background: url(../img/a.jpg) center/cover no-repeat;
-}
-
 .box-1 .content {
     background-color: #fff;
     box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
@@ -560,77 +555,12 @@ article img {
     color: gray;
 }
 
-.box-2 .wrapper {
-    background: url(../img/c.jpg) center/cover no-repeat;
-}
-
-.box-2 .content {
-    background-color: #fff;
-    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
-}
-
-.box-2 .title h1 {
-    color: gray;
-}
-
-.box-3 .wrapper {
-    background: url(../img/f.jpg) center/cover no-repeat;
-}
-
-.box-3 .content {
-    background-color: #fff;
-    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
-}
-
-.box-3 .title h1 {
-    color: gray;
-}
-
-.box-4 .wrapper {
-    background: url(../img/c.jpg) center/cover no-repeat;
-}
-
-.box-4 .content {
-    background-color: #fff;
-    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
-}
-
-.box-4 .title h1 {
-    color: gray;
-}
-
-.box-5 .wrapper {
-    background: url(../img/f.jpg) center/cover no-repeat;
-}
-
-.box-5 .content {
-    background-color: #fff;
-    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
-}
-
-.box-5 .title h1 {
-    color: gray;
-}
-
-.box-6 .wrapper {
-    background: url(../img/a.jpg) center/cover no-repeat;
-}
-
-.box-6 .content {
-    background-color: #fff;
-    box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
-}
-
-.box-6 .title h1 {
-    color: gray;
-}
-
 #descript-box {
     position: absolute;
     width: 100%;
     height: 400px;
     margin-top: 700px;
-    background-color: #8bdf46;
+    background-color: #f1ce30;
     z-index: 1;
 }
 

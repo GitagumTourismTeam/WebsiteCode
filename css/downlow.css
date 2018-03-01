@@ -166,10 +166,6 @@ body {
     }
 }
 
-.current {
-    background: rgb(214, 81, 81);
-}
-
 @media screen and (min-width:1000px) {
     .sidenav {
         width: 200px;
