@@ -1,0 +1,404 @@
+                                body {
+                                    margin: 0;
+                                    padding: 0;
+                                    font-family: Helvetica;
+                                }
+                                
+                                .navbar {
+                                    text-align: right;
+                                    overflow: hidden;
+                                    background-color: rgba(0, 0, 0, 0.432);
+                                    position: fixed;
+                                    width: 100%;
+                                    z-index: 2;
+                                    transition: 0.5s;
+                                }
+                                
+                                .navbar a {
+                                    display: inline-block;
+                                    color: #f2f2f2;
+                                    text-align: center;
+                                    padding: 25px 20px;
+                                    text-decoration: none;
+                                    font-size: 17px;
+                                }
+                                
+                                .navbar a:hover {
+                                    border-bottom: solid #ffffff;
+                                }
+                                
+                                .active {
+                                    border-bottom: solid #ffffff;
+                                }
+                                
+                                .navbar .icon {
+                                    display: none;
+                                }
+                                
+                                .navbar .navbarlogo {
+                                    float: left;
+                                    display: flex;
+                                    padding-left: 10px;
+                                    padding-top: 5px;
+                                }
+                                
+                                .navbar .navbarlogo img {
+                                    height: 65px;
+                                }
+                                
+                                .navbar .navbarlogo h1 {
+                                    padding: 7px 0 0 10px;
+                                    text-align: center;
+                                    font-size: 25px;
+                                    color: #ffffff;
+                                }
+                                
+                                @media screen and (max-width: 600px) {
+                                    .navbar a {
+                                        display: none;
+                                    }
+                                    .navbar a.icon {
+                                        float: right;
+                                        display: block;
+                                    }
+                                }
+                                
+                                .dummy {
+                                    pointer-events: none;
+                                    cursor: default;
+                                }
+                                
+                                @media screen and (max-width: 600px) {
+                                    .navbar.responsive {
+                                        position: relative;
+                                        background: black;
+                                    }
+                                    .navbar.responsive .icon {
+                                        position: absolute;
+                                        right: 0;
+                                        top: 0;
+                                    }
+                                    .navbar.responsive a {
+                                        float: none;
+                                        display: block;
+                                        text-align: center;
+                                    }
+                                    .navbar.responsive a:hover {
+                                        border: none;
+                                        background: #a8a8a877;
+                                    }
+                                    .active {
+                                        border: none;
+                                        background: #a8a8a877;
+                                    }
+                                    .dummy {
+                                        height: 22px;
+                                    }
+                                }
+                                
+                                .containernav {
+                                    background-color: linear-gradient(rgba(190, 70, 70, 0.473), rgba(78, 80, 179, 0.473));
+                                    max-width: 100%;
+                                    height: auto;
+                                    left: 0px;
+                                    right: 0px;
+                                    position: absolute;
+                                }
+                                
+                                containernav::after {
+                                    background-image: linear-gradient(rgba(190, 70, 70, 0.473), rgba(78, 80, 179, 0.473));
+                                }
+                                
+                                #backimage {
+                                    width: 100%;
+                                    height: auto;
+                                    left: 0px;
+                                    right: 0px;
+                                }
+                                
+                                .blackdiv {
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 300px;
+                                    background: #000000a8;
+                                    margin-top: 100px;
+                                    z-index: 1;
+                                }
+                                
+                                .blackdiv h1 {
+                                    color: #ffffff;
+                                    margin: 5% 0 0 10%;
+                                    font-size: 4vw;
+                                }
+                                
+                                .blackdiv p {
+                                    color: #ffffff;
+                                    font-size: 2vw;
+                                    margin: 0 0 0 20%;
+                                }
+                                
+                                .reddiv {
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 300px;
+                                    background: #4d0707a8;
+                                    margin-top: 150px;
+                                }
+                                
+                                @media (max-width:1050px) {
+                                    .reddiv {
+                                        margin-top: 120px;
+                                        height: 250px;
+                                    }
+                                }
+                                
+                                @media (max-width:750px) {
+                                    .reddiv {
+                                        margin-top: 110px;
+                                        height: 200px;
+                                    }
+                                }
+                                
+                                @media (max-width:600px) {
+                                    .reddiv {
+                                        margin-top: 95px;
+                                        height: 150px;
+                                    }
+                                }
+                                
+                                @media (max-width:400px) {
+                                    .reddiv {
+                                        margin-top: 75px;
+                                        height: 100px;
+                                    }
+                                }
+                                
+                                @media (max-width:300px) {
+                                    .reddiv {
+                                        margin-top: 60px;
+                                        height: 50px
+                                    }
+                                }
+                                
+                                @media (max-width:1050px) {
+                                    .blackdiv {
+                                        margin-top: 90px;
+                                        height: 250px;
+                                    }
+                                }
+                                
+                                @media (max-width:750px) {
+                                    .blackdiv {
+                                        margin-top: 80px;
+                                        height: 200px;
+                                    }
+                                }
+                                
+                                @media (max-width:600px) {
+                                    .blackdiv {
+                                        margin-top: 70px;
+                                        height: 100px;
+                                    }
+                                }
+                                
+                                @media (max-width:400px) {
+                                    .blackdiv {
+                                        margin-top: 60px;
+                                        height: 100px;
+                                    }
+                                }
+                                
+                                @media (max-width:300px) {
+                                    .blackdiv {
+                                        margin-top: 50px;
+                                        height: 50px
+                                    }
+                                }
+                                
+                                .footer {
+                                    position: relative;
+                                    margin-top: 10%;
+                                    height: 50%;
+                                    width: 100%;
+                                    background-color: #4E5262;
+                                    color: white;
+                                    text-align: center;
+                                }
+                                
+                                .footer p {
+                                    font-size: 2vw;
+                                }
+                                
+                                .photos {
+                                    display: -ms-flexbox;
+                                    display: flex;
+                                    -ms-flex-wrap: wrap;
+                                    flex-wrap: wrap;
+                                    padding: 0 4px;
+                                    position: relative;
+                                    margin-top: 70%;
+                                }
+                                
+                                .photos div {
+                                    -ms-flex: 25%;
+                                    flex: 25%;
+                                    max-width: 25%;
+                                    padding: 0 55px;
+                                    text-align: center;
+                                    margin: auto;
+                                }
+                                
+                                .photos div img {
+                                    color: #000000;
+                                    width: 100%;
+                                    margin-top: 8px;
+                                    vertical-align: middle;
+                                }
+                                
+                                .photos div a {
+                                    text-decoration: none;
+                                    padding: 5px;
+                                }
+                                
+                                .photos p {
+                                    color: #000000;
+                                    font-weight: bolder;
+                                    font-size: 20px;
+                                }
+                                
+                                @media (max-width: 800px) {
+                                    .photos div img {
+                                        -ms-flex: 100%;
+                                        flex: 100%;
+                                        max-width: 100%;
+                                    }
+                                }
+                                
+                                @media (max-width: 600px) {
+                                    .photos div img {
+                                        -ms-flex: 100%;
+                                        flex: 100%;
+                                        max-width: 100%;
+                                    }
+                                }
+                                
+                                .cont {
+                                    float: left;
+                                    width: 30%;
+                                    height: 500px;
+                                    background: #ffffff;
+                                    margin: 1.667%;
+                                    max-width: 100%;
+                                    left: 0px;
+                                    right: 0px;
+                                }
+                                
+                                .cont img {
+                                    width: 100%;
+                                    height: 50%;
+                                }
+                                
+                                .cont h1 {
+                                    margin-left: 5%;
+                                    color: #000000;
+                                    font-size: 30px;
+                                    font-weight: lighter;
+                                }
+                                
+                                .cont p {
+                                    padding: 20px;
+                                    text-align: justify;
+                                    color: #000000;
+                                    font-size: 18px;
+                                }
+                                
+                                .cont h4 {
+                                    margin-left: 5%;
+                                    color: #5446d6;
+                                    font-weight: lighter;
+                                }
+                                
+                                .dontlook:after {
+                                    content: "";
+                                    display: table;
+                                    clear: both;
+                                }
+                                
+                                @media (max-width: 600px) {
+                                    .cont {
+                                        width: 100%;
+                                    }
+                                }
+                                
+                                .sometext {
+                                    height: 350px;
+                                    width: 100%;
+                                    margin: 10% 0;
+                                    background-color: #000000;
+                                    color: #ffffff;
+                                    text-align: center;
+                                }
+                                
+                                .sometext h1 {
+                                    padding: 8%;
+                                    font-size: 50px;
+                                }
+                                
+                                .poppy {
+                                    position: fixed;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+                                    background: rgba(0, 0, 0, 0.7);
+                                    transition: opacity 500ms;
+                                    visibility: hidden;
+                                    opacity: 0;
+                                }
+                                
+                                .poppy:target {
+                                    visibility: visible;
+                                    opacity: 1;
+                                }
+                                
+                                .pops {
+                                    margin: 20% auto;
+                                    padding: 20px;
+                                    background: #fff;
+                                    border-radius: 5px;
+                                    width: 30%;
+                                    position: relative;
+                                    transition: all 5s ease-in-out;
+                                }
+                                
+                                .pops h2 {
+                                    margin-top: 0;
+                                    color: #333;
+                                    font-family: Tahoma, Arial, sans-serif;
+                                }
+                                
+                                .pops .close {
+                                    position: absolute;
+                                    top: 20px;
+                                    right: 30px;
+                                    transition: all 200ms;
+                                    font-size: 30px;
+                                    font-weight: bold;
+                                    text-decoration: none;
+                                    color: #333;
+                                }
+                                
+                                .pops .close:hover {
+                                    color: rgb(161, 161, 161);
+                                }
+                                
+                                .pops .content {
+                                    max-height: 30%;
+                                    overflow: auto;
+                                }
+                                
+                                @media screen and (max-width: 600px) {
+                                    .popup {
+                                        width: 100%;
+                                    }
+                                }
